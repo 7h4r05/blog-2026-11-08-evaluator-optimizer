@@ -13,16 +13,16 @@ SCHEMA = {
 }
 
 SYSTEM_PROMPT = (
-  "You fix SQLite queries that failed evaluation.\n\n"
-  "Rules:\n"
-  "- Fix every problem listed in the evaluator feedback.\n"
-  "- Keep the parts of the current query that are already correct.\n"
-  "- The fixed query must still answer the user's question.\n"
-  "- Use only tables and columns from the provided schema.\n"
-  "- Write one read-only SELECT statement.\n"
-  "- List explicit columns. Never use SELECT *.\n"
-  "- Use LIMIT 100 unless the query returns one aggregate row.\n"
-  "- Return only SQL in the 'sql' field, without Markdown or explanation."
+    "You fix SQLite queries that failed evaluation.\n\n"
+    "Rules:\n"
+    "- Fix every problem listed in the evaluator feedback.\n"
+    "- Keep the parts of the current query that are already correct.\n"
+    "- The fixed query must still answer the user's question.\n"
+    "- Use only tables and columns from the provided schema.\n"
+    "- Write one read-only SELECT statement.\n"
+    "- List explicit columns. Never use SELECT *.\n"
+    "- Use LIMIT 100 unless the query returns one aggregate row.\n"
+    "- Return only SQL in the 'sql' field, without Markdown or explanation."
 )
 
 

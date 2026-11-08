@@ -12,8 +12,7 @@ class Orchestrator:
         self.__optimizer = optimizer
         self.__historic_results: list[tuple[float, str]] = []
 
-
-    def execute(self, current_result: str, db_schema: str, max_iteration_count: int = 5) -> (str, bool):
+    def execute(self, current_result: str, db_schema: str, max_iteration_count: int = 5) -> tuple[str | None, bool]:
         self.__historic_results = []
         log("Orchestrator.execute: starting with question", self.question)
         for iteration in range(1, max_iteration_count + 1):
@@ -45,20 +44,17 @@ class Orchestrator:
         log("Orchestrator.execute: max iterations reached, returning current_result", current_result)
         return current_result, False
 
-
     def satisfied(self, results: list[EvaluationResult]) -> bool:
         for result in results:
             if not result.passed:
                 return False
         return True
 
-
     def mandatory_satisfied(self, results: list[EvaluationResult]) -> bool:
         for result in results:
             if not result.passed and result.is_mandatory:
                 return False
         return True
-
 
     def avg_score(self, results: list[EvaluationResult]) -> float:
         total_score = sum(result.score for result in results)

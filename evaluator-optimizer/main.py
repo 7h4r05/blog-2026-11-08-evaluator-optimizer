@@ -12,7 +12,7 @@ from evaluator.steps.steps_provider import StepsProvider
 
 def main():
     if not DEFAULT_PATH.exists():
-      create_database()
+        create_database()
     print("Evaluator-Optimizer is running...")
     client = OllamaClient(base_url=OLLAMA_URL, model=OLLAMA_MODEL)
     generator = GeneratorAgent(client=client)
@@ -30,20 +30,18 @@ def main():
                 print("No valid result could be generated.")
             else:
                 if not passed:
-                  print("Warning! The query did not pass all steps, but it was optimized and the best result was returned.")
+                    print("Warning! The query did not pass all steps, but it was optimized and the best result was returned.")
                 print(f"SQL Result: {result}")
                 print("Executing results...")
                 with closing(connect_read_only(DEFAULT_PATH)) as connection:
-                  for row in connection.execute(result):
-                      print(row)
-
-
-
+                    for row in connection.execute(result):
+                        print(row)
         except KeyboardInterrupt:
-          break
+            break
         except Exception as exc:
             print(f"Application error: {exc}")
             continue
+
 
 if __name__ == "__main__":
     main()
