@@ -35,7 +35,7 @@ class AccurateStep(EvaluatorStep):
         if schema is None:
             return self._result(
                 0.0,
-                "The optional 'schema' value must be text.",
+                "The database 'schema' is required.",
             )
 
         _, validation_error = parse_read_only_select(sql, self.dialect)
