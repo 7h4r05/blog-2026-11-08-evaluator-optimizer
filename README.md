@@ -1,6 +1,6 @@
 # blog-2026-11-08-evaluator-optimizer
 
-Code repository for [Text-to-SQL using Evaluator-Optimizer](https://7h4r05.github.io/2026/11/08/evaluator-optimizer.html).
+Code repository for [Text-to-SQL using Evaluator-Optimizer](https://7h4r05.github.io/ai/agentic/architecture/python/2026/11/08/evaluator-optimizer.html).
 
 A console application that turns a question into a read-only SQLite query.
 The Generator writes the first query, the Evaluator scores it, and the
