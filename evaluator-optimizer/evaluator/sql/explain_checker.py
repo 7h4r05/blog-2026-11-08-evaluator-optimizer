@@ -1,7 +1,5 @@
-
 from pathlib import Path
 
-import sqlglot
 from sqlglot import exp
 import sqlite3
 from contextlib import closing
@@ -18,6 +16,6 @@ class SqliteExplainChecker(QueryPlanChecker):
           try:
               connection.execute(f"EXPLAIN QUERY PLAN {sql}").fetchall()
           except sqlite3.Error as error:
-              return [False, f"The database cannot run this query: {error}."]
-      return [True, ""]
+              return (False, f"The database cannot run this query: {error}.")
+      return (True, "")
 
