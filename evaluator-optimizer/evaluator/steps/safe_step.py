@@ -23,7 +23,7 @@ class SafeStep(EvaluatorStep):
         _, validation_error = parse_read_only_select(sql, self.dialect)
         if validation_error:
             return self._result(0.0, validation_error)
-        query_error = self.query_checker(sql)
+        query_error = self.query_checker(sql, self.dialect)
         if query_error[0] is False:
             return self._result(0.0, query_error[1])
 
